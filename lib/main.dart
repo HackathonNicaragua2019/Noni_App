@@ -1,20 +1,39 @@
+import 'dart:async';
+import 'package:load/load.dart';
 import 'package:flutter/material.dart';
+import 'package:noni/Cuestionario1.dart';
+
 
 void main()
 {
-  runApp(new MaterialApp(
-    title: "Bienvenidos a NoNi",
-    home: Loader(),
+  runApp(LoadingProvider(
+    child: MaterialApp(
+      home: Loader(),
+    ),
   ));
 }
 
-class Loader extends StatelessWidget
+class Loader extends StatefulWidget
 {
+
+  @override
+  _LoaderState createState() => new _LoaderState();
+}
+
+class _LoaderState extends State<Loader> {
+  @override
+  void initState() {
+    _getThingsOnStartup().then((value){
+      print('Async done');
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
 
     return new Container(
+
       decoration: BoxDecoration(
         // Box decoration takes a gradient
         gradient: LinearGradient(
@@ -32,22 +51,41 @@ class Loader extends StatelessWidget
       ),
         child: new Center(
           child: new Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              new Image(
-                image: AssetImage("assets/loader.jpg"),
-                fit: BoxFit.fitHeight,
+
+              GestureDetector(
+                onTap: () {
+
+                },
+                child: new Image(
+                  image: AssetImage("assets/loader.jpg"),
+                  fit: BoxFit.fitHeight,
+
+                ),
               ),
             ],
-          ),
 
+          ),
 
         ),
 
 
     );
   }
-  
+
+  Future _getThingsOnStartup() async {
+    showLoadingDialog();
+    new Timer(const Duration(milliseconds: 3000), () {
+      hideLoadingDialog();
+      Navigator.push(context,
+          new MaterialPageRoute(builder: (context)=> new FirtsQ()));
+    } );
+
+  }
 }
+
+
 
 
 
