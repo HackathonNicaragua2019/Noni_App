@@ -1,15 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:noni/bienvenida.dart';
 
 
 
-class FirtsQ extends StatefulWidget
+class Login extends StatefulWidget
 {
   @override
-  _FirtsQState createState() => _FirtsQState();
+  _LoginState createState() => new _LoginState();
 }
 
-class _FirtsQState extends State<FirtsQ> {
+class _LoginState extends State<Login> {
   
   @override
   Widget build(BuildContext context) {
@@ -109,8 +110,21 @@ class _FirtsQState extends State<FirtsQ> {
                                   textColor: Colors.white,
                                   color: Color(0xff5ACA2A),
 
-                                  onPressed: (){}),
+                                  onPressed: (){
+                                    Navigator.push(context,
+                                        new MaterialPageRoute(builder: (context)=> new FirstQ()));
 
+                                  }),
+
+                            ),
+                            new GestureDetector(
+                                onTap: (){}
+                                ,
+                                child:
+                                new Container(
+                                  padding: new EdgeInsets.only(top:15.0),
+                                  child: new Text("Registrarme Ahora",style: new TextStyle(fontSize: 14.0,color: Color(0xff008FC9)),textAlign: TextAlign.right),
+                                )
                             ),
                             new Container(
                               padding: EdgeInsets.only(top:35.0),

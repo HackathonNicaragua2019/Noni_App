@@ -79,7 +79,7 @@ class _LoaderState extends State<Loader> {
     new Timer(const Duration(milliseconds: 3000), () {
       hideLoadingDialog();
       Navigator.push(context,
-          new MaterialPageRoute(builder: (context)=> new FirtsQ()));
+          new MaterialPageRoute(builder: (context)=> new Login()));
     } );
 
   }
