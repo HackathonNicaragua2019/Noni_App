@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:load/load.dart';
 import 'package:flutter/material.dart';
-import 'package:noni/Cuestionario1.dart';
+import 'package:noni/login.dart';
 
 
 void main()
